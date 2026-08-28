@@ -1,0 +1,40 @@
+"Issue Id","Issue Type","Summary","Description","Priority","Story Points","Parent","Sprint","Labels"
+"1","Epic","Epic 1: WIP Draft Upload & Watermark Protection","Accept versioned work-in-progress drafts from the Digital Artist against an open milestone, and guarantee that the Client Buyer only ever sees a watermarked derivative while the original stays unreachable until payment.
+
+Traces to: FR-001, FR-003, FR-004 / UC-03, UC-04, UC-05","High","","","","Lab2-PS58"
+"101","Story","Story 1.1: Upload a versioned WIP draft","As a digital artist,
+I want to upload a WIP draft against an open milestone with a version note,
+So that the buyer can follow progress and no earlier version is lost.
+
+Acceptance criteria: Two uploads produce two distinct timestamped versions under the milestone; no version is overwritten and an unassigned artist cannot upload.
+Traces to: FR-003 / UC-03","Highest","8","1","DAC Sprint 1","Lab2-PS58"
+"102","Story","Story 1.2: Apply a diagonal watermark to every draft","As a client buyer,
+I want every draft I view to carry a diagonal watermark with the commission ID and my buyer identifier,
+So that unfinished artwork cannot be lifted and reused before it is paid for.
+
+Acceptance criteria: For 20 test images the portal renders only a watermarked preview carrying both identifiers; no preview lacks the overlay.
+Traces to: FR-001 / UC-04","Highest","8","1","DAC Sprint 1","Lab2-PS58"
+"103","Story","Story 1.3: Notify the buyer when a draft is ready","As a client buyer,
+I want to be notified when a new watermarked draft is published,
+So that I review it promptly instead of checking the portal on the off chance.
+
+Acceptance criteria: The notification fires only after the watermarked preview is published, and never for a version that failed processing.
+Traces to: FR-004 / UC-05","Medium","3","1","DAC Sprint 1","Lab2-PS58"
+"104","Story","Story 1.4: Keep originals in private storage","As a digital artist,
+I want my original upload kept in private storage with no buyer-facing link,
+So that the unwatermarked file is never reachable before payment.
+
+Acceptance criteria: A direct request for the original by the buyer returns 403 with no file data; a storage scan finds no public link to an original.
+Traces to: FR-001 / UC-03","Highest","5","1","DAC Sprint 2","Lab2-PS58"
+"105","Story","Story 1.5: Fail closed if watermarking fails","As a digital artist,
+I want the system to withhold the preview and flag the version when watermarking fails,
+So that a processing error never leaks an unprotected draft to the buyer.
+
+Acceptance criteria: A forced watermark failure marks the version Processing Failed, removes buyer-facing access, notifies only the artist, and exposes no unwatermarked asset.
+Traces to: FR-001 / UC-04","High","5","1","DAC Sprint 2","Lab2-PS58"
+"106","Story","Story 1.6: Review a watermarked draft","As a client buyer,
+I want to open the latest watermarked draft for a milestone,
+So that I can judge progress before approving or asking for changes.
+
+Acceptance criteria: Only the commission owner can open the draft; the version number and submission timestamp are shown alongside it.
+Traces to: FR-004 / UC-05","High","5","1","DAC Sprint 2","Lab2-PS58"
