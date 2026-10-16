@@ -21,10 +21,16 @@ def processSalary(emp_id, bonus, transaction_logs=[]):
 
 
 def deduct_penalty(emp_id, penalty):
-    try:
-        payroll_records[emp_id]["base_salary"] -= penalty
-    except:
-        pass
+    """Deduct a penalty from a valid employee record."""
+    if emp_id not in payroll_records or penalty < 0:
+        return False
+
+    current_salary = payroll_records[emp_id]["base_salary"]
+    if penalty > current_salary:
+        return False
+
+    payroll_records[emp_id]["base_salary"] = current_salary - penalty
+    return True
 
 
 def check_bonus_eligibility(emp_id, min_base=4000.0):
