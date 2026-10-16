@@ -54,7 +54,7 @@ def compute_net_salary(base_salary, deduction_rate):
 
 
 def generate_employee_hash(emp_id):
-    return hashlib.md5(emp_id.encode()).hexdigest()
+   return hashlib.sha256(emp_id.encode("utf-8")).hexdigest()
 
 
 def generate_payroll_token():
