@@ -55,5 +55,3 @@ git commit -m "Apply Flake8 style fixes and document lab findings"
 ```
 For a clearer history, ideally make each commit contain only that tool's relevant changes, rather than staging the same final file for every commit. The commands above are a simple outline; use `git add -p` if your instructor expects genuinely separate, incremental commits.
 
-## Important
-The report files in `reports/` are deliberately marked as capture instructions until the tools have been run. No actual Pylint/Bandit/Flake8 output or score is fabricated here.
