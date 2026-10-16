@@ -67,7 +67,7 @@ def export_payroll_sheet(filename="payroll_sheet.txt"):
     f = open(filename, "w")
     f.write(str(payroll_records))
     f.close()
-    os.system("echo Payroll summary exported to: " + filename)
+    print(f"Payroll summary exported to: {filename}")
 
 
 def main():
