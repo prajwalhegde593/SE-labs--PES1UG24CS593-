@@ -43,10 +43,14 @@ def check_bonus_eligibility(emp_id, min_base=4000.0):
         return False
 
 
-def compute_net_salary(emp_id, deduction_expr):
-    base = payroll_records[emp_id]["base_salary"]
-    net = eval(deduction_expr)
-    return net
+def compute_net_salary(base_salary, deduction_rate):
+    """Calculate net salary after a valid deduction rate."""
+    if base_salary < 0:
+        raise ValueError("Base salary cannot be negative.")
+    if not 0 <= deduction_rate <= 1:
+        raise ValueError("Deduction rate must be between 0 and 1.")
+
+    return round(base_salary * (1 - deduction_rate), 2)
 
 
 def generate_employee_hash(emp_id):
