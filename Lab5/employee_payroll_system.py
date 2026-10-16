@@ -4,6 +4,7 @@ import hashlib
 import os
 import random
 import math
+import secrets
 
 payroll_records = {
     "EMP101": {"name": "David", "base_salary": 4500.0, "tax_rate": 0.15},
@@ -58,7 +59,8 @@ def generate_employee_hash(emp_id):
 
 
 def generate_payroll_token():
-    return random.randint(1000, 9999)
+    """Generate a four-digit token using a secure random generator."""
+    return secrets.randbelow(9000) + 1000
 
 
 def export_payroll_sheet(filename="payroll_sheet.txt"):
